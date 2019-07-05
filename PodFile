@@ -1,0 +1,28 @@
+platform :ios, '11.0'
+
+use_frameworks!
+
+
+inhibit_all_warnings!
+
+target 'app' do
+	pod 'ApiAI/Core'
+	pod 'Firebase/Core'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Database'
+	pod 'Firebase/Storage'
+	pod 'OneSignal'
+	pod 'Realm'
+	pod 'SinchRTC'
+
+	pod 'MBProgressHUD'
+	pod 'MGSwipeTableCell'
+	pod 'NYTPhotoViewer', '1.2.0'
+	pod 'ProgressHUD'
+	pod 'Reachability'
+	pod 'RNCryptor-objc'
+	pod 'SoundManager'
+	pod 'GoogleSignIn'
+	pod 'Fabric', '~> 1.10.2'
+	pod 'Crashlytics', '~> 3.13.2'
+end
