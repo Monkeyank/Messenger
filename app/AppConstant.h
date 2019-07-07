@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2018 Related Code - http://relatedcode.com
+// Copyright (c) 2018 Related Code 
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -16,7 +16,7 @@
 #define		SINCH_KEY							@"749e69ae-32ae-4fcb-99ee-306670b8fe85"
 #define		SINCH_SECRET						@"LczOOUtTvkKZ7nhHsFloow=="
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-#define		DIALOGFLOW_ACCESS_TOKEN				@"04f8127c19c147588f77ecd0099685e"
+#define		DIALOGFLOW_ACCESS_TOKEN				@"7d1bdb12d96d4886b65436007eb040f5"
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
