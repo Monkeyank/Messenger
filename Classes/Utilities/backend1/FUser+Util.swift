@@ -1,8 +1,7 @@
 
 extension FUser {
 
-	// MARK: - Class methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	class func fullname() -> String		{ return FUser.currentUser().fullname()			}
 	class func initials() -> String		{ return FUser.currentUser().initials()			}
 	class func picture() -> String		{ return FUser.currentUser().picture()			}
@@ -19,8 +18,7 @@ extension FUser {
 	class func wallpaper() -> String	{ return FUser.currentUser().wallpaper() 		}
 	class func isOnboardOk() -> Bool	{ return FUser.currentUser().isOnboardOk()		}
 
-	// MARK: - Instance methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func fullname() -> String			{ return (self[FUSER_FULLNAME] as? String)		?? ""						}
 	func picture() -> String			{ return (self[FUSER_PICTURE] as? String)		?? ""						}
 	func thumbnail() -> String			{ return (self[FUSER_THUMBNAIL] as? String)		?? ""						}
@@ -36,7 +34,7 @@ extension FUser {
 	func wallpaper() -> String			{ return (self[FUSER_WALLPAPER] as? String)		?? ""						}
 	func isOnboardOk() -> Bool			{ return self[FUSER_FULLNAME] != nil										}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func initials() -> String {
 
 		if let firstname = self[FUSER_FIRSTNAME] as? String {

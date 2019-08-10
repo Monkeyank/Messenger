@@ -1,12 +1,10 @@
-
 class FObject: NSObject {
 
 	private var pathX: String!
 	private var subpathX: String?
 	var values: [String: Any] = [:]
 
-	// MARK: - Init methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	init(path: String, subpath: String?) {
 
 		super.init()
@@ -15,19 +13,18 @@ class FObject: NSObject {
 		subpathX = subpath
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	convenience init(path: String) {
 
 		self.init(path: path, subpath: nil)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	convenience init(path: String, dictionary: [String: Any]) {
 
 		self.init(path: path, subpath: nil, dictionary: dictionary)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	convenience init(path: String, subpath: String?, dictionary: [String: Any]) {
 
 		self.init(path: path, subpath: subpath)
@@ -37,8 +34,7 @@ class FObject: NSObject {
 		}
 	}
 
-	// MARK: - Accessors
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	subscript(key: String) -> Any? {
 
 		get {
@@ -49,13 +45,13 @@ class FObject: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func objectId() -> String {
 
 		return values["objectId"] as! String
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func objectIdInit() {
 
 		if (values["objectId"] == nil) {
@@ -64,8 +60,7 @@ class FObject: NSObject {
 		}
 	}
 
-	// MARK: - Save methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func saveInBackground() {
 
 		let reference = databaseReference()
@@ -83,7 +78,7 @@ class FObject: NSObject {
 		reference.updateChildValues(values)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func saveInBackground(block: @escaping (_ error: Error?) -> Void) {
 
 		let reference = databaseReference()
@@ -103,8 +98,7 @@ class FObject: NSObject {
 		})
 	}
 
-	// MARK: - Update methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func updateInBackground() {
 
 		if (values["objectId"] != nil) {
@@ -115,7 +109,7 @@ class FObject: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func updateInBackground(block: @escaping (_ error: Error?) -> Void) {
 
 		if (values["objectId"] != nil) {
@@ -130,8 +124,7 @@ class FObject: NSObject {
 		}
 	}
 
-	// MARK: - Delete methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func deleteInBackground() {
 
 		if (values["objectId"] != nil) {
@@ -140,7 +133,7 @@ class FObject: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func deleteInBackground(block: @escaping (_ error: Error?) -> Void) {
 
 		if (values["objectId"] != nil) {
@@ -153,8 +146,7 @@ class FObject: NSObject {
 		}
 	}
 
-	// MARK: - Fetch methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func fetchInBackground() {
 
 		let reference = databaseReference()
@@ -165,7 +157,7 @@ class FObject: NSObject {
 		})
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func fetchInBackground(block: @escaping (_ error: Error?) -> Void) {
 
 		let reference = databaseReference()
@@ -179,8 +171,7 @@ class FObject: NSObject {
 		})
 	}
 
-	// MARK: - Private methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	func databaseReference() -> DatabaseReference {
 
 		var reference: DatabaseReference!

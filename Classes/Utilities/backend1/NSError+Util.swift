@@ -1,7 +1,7 @@
 
 extension NSError {
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	class func description(_ description: String, code: Int) -> Error? {
 
 		let domain = Bundle.main.bundleIdentifier ?? ""
