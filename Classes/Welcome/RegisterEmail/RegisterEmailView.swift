@@ -1,18 +1,15 @@
-
 @objc protocol RegisterEmailDelegate: class {
 
 	func didRegisterUser()
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 class RegisterEmailView: UIViewController, UITextFieldDelegate {
 
 	@IBOutlet weak var delegate: RegisterEmailDelegate?
 
 	@IBOutlet var fieldEmail: UITextField!
 	@IBOutlet var fieldPassword: UITextField!
-
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
@@ -22,7 +19,6 @@ class RegisterEmailView: UIViewController, UITextFieldDelegate {
 		gestureRecognizer.cancelsTouchesInView = false
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	override func viewWillDisappear(_ animated: Bool) {
 
 		super.viewWillDisappear(animated)
@@ -30,14 +26,13 @@ class RegisterEmailView: UIViewController, UITextFieldDelegate {
 		dismissKeyboard()
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@objc func dismissKeyboard() {
 
 		view.endEditing(true)
 	}
 
-	// MARK: - User actions
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionRegister(_ sender: Any) {
 
 		let email = (fieldEmail.text ?? "").lowercased()
@@ -62,14 +57,13 @@ class RegisterEmailView: UIViewController, UITextFieldDelegate {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionDismiss(_ sender: Any) {
 
 		dismiss(animated: true)
 	}
 
-	// MARK: - UITextField delegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
 		if (textField == fieldEmail) {

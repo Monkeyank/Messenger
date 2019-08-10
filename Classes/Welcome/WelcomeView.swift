@@ -1,14 +1,12 @@
-
 class WelcomeView: UIViewController, LoginPhoneDelegate, LoginEmailDelegate, RegisterEmailDelegate {
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
 	}
 
-	// MARK: - Phone login methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionLoginPhone(_ sender: Any) {
 
 		let loginPhoneView = LoginPhoneView()
@@ -17,7 +15,7 @@ class WelcomeView: UIViewController, LoginPhoneDelegate, LoginEmailDelegate, Reg
 		present(navController, animated: true)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+    
 	func didLoginPhone() {
 
 		dismiss(animated: true) {
@@ -25,8 +23,7 @@ class WelcomeView: UIViewController, LoginPhoneDelegate, LoginEmailDelegate, Reg
 		}
 	}
 
-	// MARK: - Email login methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionLoginEmail(_ sender: Any) {
 
 		let loginEmailView = LoginEmailView()
@@ -34,7 +31,7 @@ class WelcomeView: UIViewController, LoginPhoneDelegate, LoginEmailDelegate, Reg
 		present(loginEmailView, animated: true)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func didLoginEmail() {
 
 		dismiss(animated: true) {
@@ -42,8 +39,7 @@ class WelcomeView: UIViewController, LoginPhoneDelegate, LoginEmailDelegate, Reg
 		}
 	}
 
-	// MARK: - Email register methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionRegisterEmail(_ sender: Any) {
 
 		let registerEmailView = RegisterEmailView()
@@ -51,7 +47,7 @@ class WelcomeView: UIViewController, LoginPhoneDelegate, LoginEmailDelegate, Reg
 		present(registerEmailView, animated: true)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func didRegisterUser() {
 
 		dismiss(animated: true) {
