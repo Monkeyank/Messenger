@@ -1,18 +1,6 @@
-//
-// Copyright (c) 2018 Related Code - http://relatedcode.com
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 class MessageQueue: NSObject {
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	class func send(chatId: String, recipientId: String, status: String?, text: String?, picture: UIImage?, video: URL?, audio: String?) {
 
 		let predicate = NSPredicate(format: "objectId == %@", recipientId)
@@ -76,7 +64,7 @@ class MessageQueue: NSObject {
 		else						{ sendLoactionMessage(message: message)						}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	class func send(chatId: String, groupId: String, status: String?, text: String?, picture: UIImage?, video: URL?, audio: String?) {
 
 		let predicate = NSPredicate(format: "objectId == %@", groupId)
@@ -140,7 +128,8 @@ class MessageQueue: NSObject {
 		else						{ sendLoactionMessage(message: message)						}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+    
+    
 	class func forward(chatId: String, recipientId: String, dbmessage: DBMessage) {
 
 		let predicate = NSPredicate(format: "objectId == %@", recipientId)
@@ -199,7 +188,7 @@ class MessageQueue: NSObject {
 		createMessage(message: message)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	class func forward(chatId: String, groupId: String, dbmessage: DBMessage) {
 
 		let predicate = NSPredicate(format: "objectId == %@", groupId)
@@ -258,7 +247,8 @@ class MessageQueue: NSObject {
 		createMessage(message: message)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func sendStatusMessage(message: FObject, status: String) {
 
 		message[FMESSAGE_TYPE] = MESSAGE_STATUS
@@ -267,7 +257,8 @@ class MessageQueue: NSObject {
 		createMessage(message: message)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func sendTextMessage(message: FObject, text: String) {
 
 		message[FMESSAGE_TYPE] = Emoji.isEmoji(text: text) ? MESSAGE_EMOJI : MESSAGE_TEXT
@@ -276,7 +267,8 @@ class MessageQueue: NSObject {
 		createMessage(message: message)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func sendPictureMessage(message: FObject, picture: UIImage) {
 
 		message[FMESSAGE_TYPE] = MESSAGE_PICTURE
@@ -295,7 +287,8 @@ class MessageQueue: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func sendVideoMessage(message: FObject, video: URL) {
 
 		message[FMESSAGE_TYPE] = MESSAGE_VIDEO
@@ -313,7 +306,8 @@ class MessageQueue: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func sendAudioMessage(message: FObject, audio: String) {
 
 		message[FMESSAGE_TYPE] = MESSAGE_AUDIO
@@ -331,7 +325,8 @@ class MessageQueue: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func sendLoactionMessage(message: FObject) {
 
 		message[FMESSAGE_TYPE] = MESSAGE_LOCATION
@@ -343,8 +338,8 @@ class MessageQueue: NSObject {
 		createMessage(message: message)
 	}
 
-	// MARK: -
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func createMessage(message: FObject) {
 
 		updateRealm(message: message.values)
@@ -356,7 +351,8 @@ class MessageQueue: NSObject {
 		playMessageOutgoing(message: message)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func updateRealm(message: [String: Any]) {
 
 		var temp = message
@@ -374,7 +370,8 @@ class MessageQueue: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func updateChat(message: [String: Any]) {
 
 		let chatId = message[FMESSAGE_CHATID] as! String
@@ -382,7 +379,8 @@ class MessageQueue: NSObject {
 		Chat.updateChat(chatId: chatId)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func playMessageOutgoing(message: FObject) {
 
 		let type = message[FMESSAGE_TYPE] as! String

@@ -1,18 +1,7 @@
-//
-// Copyright (c) 2018 Related Code - http://relatedcode.com
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 class CacheManager: NSObject {
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func cleanupExpired() {
 
 		if (FUser.currentId() != "") {
@@ -25,7 +14,8 @@ class CacheManager: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
+    
 	class func cleanupExpired(days: Int) {
 
 		var isDir: ObjCBool = false
@@ -33,8 +23,9 @@ class CacheManager: NSObject {
 
 		let past = Date().addingTimeInterval(TimeInterval(-days * 24 * 60 * 60))
 
-		// Clear Documents files
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Clear documents
+        
 		if let enumerator = FileManager.default.enumerator(atPath: Dir.document()) {
 			while let file = enumerator.nextObject() as? String {
 				let path = Dir.document(file)
@@ -51,8 +42,10 @@ class CacheManager: NSObject {
 			}
 		}
 
-		// Clear Caches files
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Clear Cache
+
+        
 		if let files = try? FileManager.default.contentsOfDirectory(atPath: Dir.cache()) {
 			for file in files {
 				let path = Dir.cache(file)
@@ -70,14 +63,16 @@ class CacheManager: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	class func cleanupManual(logout: Bool) {
 
 		var isDir: ObjCBool = false
 		let extensions = logout ? ["jpg", "mp4", "m4a", "manual", "loading"] : ["jpg", "mp4", "m4a"]
 
-		// Clear Documents files
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Clear Docs
+
+        
 		if let enumerator = FileManager.default.enumerator(atPath: Dir.document()) {
 			while let file = enumerator.nextObject() as? String {
 				let path = Dir.document(file)
@@ -91,8 +86,10 @@ class CacheManager: NSObject {
 			}
 		}
 
-		// Clear Caches files
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+		
+// Clear Cache
+
+        
 		if let files = try? FileManager.default.contentsOfDirectory(atPath: Dir.cache()) {
 			for file in files {
 				let path = Dir.cache(file)
@@ -107,7 +104,7 @@ class CacheManager: NSObject {
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+    
 	class func total() -> Int64 {
 
 		var isDir: ObjCBool = false
@@ -115,8 +112,7 @@ class CacheManager: NSObject {
 
 		var total: Int64 = 0
 
-		// Count Documents files
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
 		if let enumerator = FileManager.default.enumerator(atPath: Dir.document()) {
 			while let file = enumerator.nextObject() as? String {
 				let path = Dir.document(file)
@@ -130,8 +126,8 @@ class CacheManager: NSObject {
 			}
 		}
 
-		// Count Caches files
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
+        
 		if let files = try? FileManager.default.contentsOfDirectory(atPath: Dir.cache()) {
 			for file in files {
 				let path = Dir.cache(file)
