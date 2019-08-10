@@ -2451,7 +2451,7 @@
 				TargetAttributes = {
 					29D29EF01D9A59E4006CA074 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = CVA5WK5Y8M;
+						DevelopmentTeam = 3U3SNC9LRZ;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -3183,7 +3183,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_ENTITLEMENTS = app/app.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = CVA5WK5Y8M;
+				DEVELOPMENT_TEAM = 3U3SNC9LRZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.46.0",
@@ -3193,7 +3193,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.monkeyank.newmessagingapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.newmessagingapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "app-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3211,7 +3211,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_ENTITLEMENTS = app/app.entitlements;
-				DEVELOPMENT_TEAM = CVA5WK5Y8M;
+				DEVELOPMENT_TEAM = 3U3SNC9LRZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoogleMobileAdsSdkiOS-7.46.0",
@@ -3221,7 +3221,7 @@
 				INFOPLIST_FILE = app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.monkeyank.newmessagingapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.newmessagingapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "app-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

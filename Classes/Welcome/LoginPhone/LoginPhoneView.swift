@@ -1,21 +1,9 @@
-//
-// Copyright (c) 2018 Related Code - http://relatedcode.com
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 @objc protocol LoginPhoneDelegate: class {
 
 	func didLoginPhone()
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, VerifyCodeDelegate {
 
 	@IBOutlet weak var delegate: LoginPhoneDelegate?
@@ -28,7 +16,7 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 
 	private var verificationID = ""
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
@@ -49,7 +37,7 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	override func viewWillDisappear(_ animated: Bool) {
 
 		super.viewWillDisappear(animated)
@@ -57,20 +45,19 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		dismissKeyboard()
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@objc func dismissKeyboard() {
 
 		view.endEditing(true)
 	}
 
-	// MARK: - User actions
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@objc func actionCancel() {
 
 		dismiss(animated: true)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionCountries(_ sender: Any) {
 
 		let countriesView = CountriesView()
@@ -79,8 +66,7 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		present(navController, animated: true)
 	}
 
-	// MARK: - CountriesDelegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func didSelectCountry(name: String, code: String) {
 
 		labelName.text = name
@@ -88,7 +74,7 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		fieldPhone.becomeFirstResponder()
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@objc func actionNext() {
 
 		dismissKeyboard()
@@ -114,8 +100,7 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		}
 	}
 
-	// MARK: - VerifyCodeDelegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func didVerifyCode(code: String) {
 
 		ProgressHUD.show(nil, interaction: false)
@@ -133,8 +118,6 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		}
 	}
 
-	// MARK: - Save user methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func saveUserPhone() {
 
 		let code = labelCode.text ?? ""
@@ -149,8 +132,6 @@ class LoginPhoneView: UIViewController, UITextFieldDelegate, CountriesDelegate, 
 		})
 	}
 
-	// MARK: - UITextFieldDelegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 
 		let text = (textField.text ?? "") as NSString

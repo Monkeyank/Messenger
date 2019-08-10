@@ -78,7 +78,7 @@
                         <action selector="actionLogin:" destination="-1" eventType="touchUpInside" id="clI-GL-xXm"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing in you accept the Terms &amp; Privacy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I3-OK-1j5">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing in you accept Terms, Cookies &amp; Privacy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I3-OK-1j5">
                     <rect key="frame" x="0.0" y="400" width="320" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="ckH-l3-0sq"/>

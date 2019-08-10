@@ -1,21 +1,9 @@
-//
-// Copyright (c) 2018 Related Code - http://relatedcode.com
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 @objc protocol LoginEmailDelegate: class {
 
 	func didLoginEmail()
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 class LoginEmailView: UIViewController, UITextFieldDelegate {
 
 	@IBOutlet weak var delegate: LoginEmailDelegate?
@@ -23,7 +11,7 @@ class LoginEmailView: UIViewController, UITextFieldDelegate {
 	@IBOutlet var fieldEmail: UITextField!
 	@IBOutlet var fieldPassword: UITextField!
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	override func viewDidLoad() {
 
 		super.viewDidLoad()
@@ -33,7 +21,7 @@ class LoginEmailView: UIViewController, UITextFieldDelegate {
 		gestureRecognizer.cancelsTouchesInView = false
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	override func viewWillDisappear(_ animated: Bool) {
 
 		super.viewWillDisappear(animated)
@@ -41,14 +29,13 @@ class LoginEmailView: UIViewController, UITextFieldDelegate {
 		dismissKeyboard()
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@objc func dismissKeyboard() {
 
 		view.endEditing(true)
 	}
 
-	// MARK: - User actions
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	@IBAction func actionLogin(_ sender: Any) {
 
 		var email = (fieldEmail.text ?? "").lowercased()
@@ -79,8 +66,7 @@ class LoginEmailView: UIViewController, UITextFieldDelegate {
 		dismiss(animated: true)
 	}
 
-	// MARK: - UITextField delegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
 		if (textField == fieldEmail) {

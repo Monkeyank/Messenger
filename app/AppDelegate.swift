@@ -1,15 +1,4 @@
-//
-// Copyright (c) 2018 Related Code 
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCallClientDelegate {
@@ -25,26 +14,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 
 	@objc var sinchService: SINService?
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Firebase initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+// Firebase init
+
 		FirebaseApp.configure()
 		Database.database().isPersistenceEnabled = false
 		FirebaseConfiguration().setLoggerLevel(.error)
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Dialogflow initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
+// Dialogflow init
 		let configuration = AIDefaultConfiguration()
 		configuration.clientAccessToken = DIALOGFLOW_ACCESS_TOKEN
 		ApiAI.shared().configuration = configuration
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Push notification initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+	
+// Push notifications init
+		
 		let authorizationOptions: UNAuthorizationOptions = [.sound, .alert, .badge]
 		let userNotificationCenter = UNUserNotificationCenter.current()
 		userNotificationCenter.requestAuthorization(options: authorizationOptions, completionHandler: { granted, error in
@@ -55,39 +41,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 			}
 		})
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// OneSignal initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+		
+//OneSignal init
+	
 		OneSignal.initWithLaunchOptions(launchOptions, appId: ONESIGNAL_APPID, handleNotificationReceived: nil, handleNotificationAction: nil, settings: [kOSSettingsKeyAutoPrompt: false])
 		OneSignal.setLogLevel(ONE_S_LOG_LEVEL.LL_NONE, visualLevel: ONE_S_LOG_LEVEL.LL_NONE)
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// This can be removed once Firebase auth issue is resolved
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+
 		if (UserDefaultsX.bool(key: "Initialized") == false) {
 			UserDefaultsX.setObject(value: true, key: "Initialized")
 			FUser.logOut()
 		}
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Shortcut items initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+	
+// Shortcut items init
+	
 		Shortcut.create()
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Connection, Location initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+	
+// Connection, Location init
+	
 		_ = Connection.shared
 		_ = Location.shared
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
 		// RelayManager initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+	
 		_ = RelayManager.shared
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Realm initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+// Realm init
+	
 		_ = Blockeds.shared
 		_ = Blockers.shared
 		_ = CallHistories.shared
@@ -98,9 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		_ = Users.shared
 		_ = UserStatuses.shared
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// UI initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+	
+// UI initialization
+	
 		window = UIWindow(frame: UIScreen.main.bounds)
 
 		chatsView = ChatsView(nibName: "ChatsView", bundle: nil)
@@ -129,9 +111,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		_ = groupsView.view
 		_ = settingsView.view
 
-		//-----------------------------------------------------------------------------------------------------------------------------------------
-		// Sinch initialization
-		//-----------------------------------------------------------------------------------------------------------------------------------------
+	
+// Sinch init
+	
 		let config = SinchService.config(withApplicationKey: SINCH_KEY, applicationSecret: SINCH_SECRET, environmentHost: SINCH_HOST).pushNotifications(with: SINAPSEnvironment.development).disableMessaging()
 
 		sinchService = SinchService.service(with: config)
@@ -146,24 +128,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		return true
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationWillResignActive(_ application: UIApplication) {
 
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationDidEnterBackground(_ application: UIApplication) {
 
 		Location.stop()
 		UpdateLastTerminate(fetch: true)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationWillEnterForeground(_ application: UIApplication) {
 
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationDidBecomeActive(_ application: UIApplication) {
 
 		Location.start()
@@ -184,13 +162,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		NotificationCenterX.post(notification: NOTIFICATION_APP_STARTED)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func applicationWillTerminate(_ application: UIApplication) {
 
 	}
 
-	// MARK: - CoreSpotlight methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+// CoreSpotlight methods
+
 	func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
 
 		if (userActivity.activityType == CSSearchableItemActionType) {
@@ -201,8 +178,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		return false
 	}
 
-	// MARK: - Sinch user methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+// Sinch user methods
+	
 	@objc func sinchLogInUser() {
 
 		if (FUser.currentId() != "") {
@@ -210,20 +187,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	@objc func sinchLogOutUser() {
 
 		sinchService?.logOutUser()
 	}
 
-	// MARK: - SINServiceDelegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+// SINServiceDelegate
 	func service(_ service: SINService?) throws {
 
 	}
 
-	// MARK: - SINCallClientDelegate
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+// SINCallClientDelegate
+
 	func client(_ client: SINCallClient?, didReceiveIncomingCall call: SINCall?) {
 
 		if (call!.details.isVideoOffered) {
@@ -239,7 +214,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		}
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func client(_ client: SINCallClient?, localNotificationForIncomingCall call: SINCall?) -> SINLocalNotification? {
 
 		let notification = SINLocalNotification()
@@ -249,19 +223,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		return notification
 	}
 
-	// MARK: - Push notification methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+// Push notification methods
+
 	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
 		Auth.auth().setAPNSToken(deviceToken, type: .unknown)
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
 
 	}
 
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 
 		if (Auth.auth().canHandleNotification(userInfo)) {
@@ -269,8 +242,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		}
 	}
 
-	// MARK: - Home screen dynamic quick action methods
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+// Home screen dynamic quick action methods
+
 	func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
 
 		if (shortcutItem.type == "newchat") {
@@ -298,8 +271,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SINServiceDelegate, SINCa
 		}
 	}
 
-	// MARK: -
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	func topViewController() -> UIViewController? {
 
 		var viewController = UIApplication.shared.keyWindow?.rootViewController
