@@ -80,7 +80,7 @@
                         <action selector="actionRegisterEmail:" destination="-1" eventType="touchUpInside" id="fXn-hs-Ez9"/>
                     </connections>
                 </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="images.png" translatesAutoresizingMaskIntoConstraints="NO" id="lb0-yD-Zh6">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="i156573557288372598.png" translatesAutoresizingMaskIntoConstraints="NO" id="lb0-yD-Zh6">
                     <rect key="frame" x="54" y="93" width="212" height="242"/>
                 </imageView>
             </subviews>
@@ -105,6 +105,6 @@
         </view>
     </objects>
     <resources>
-        <image name="images.png" width="283" height="178"/>
+        <image name="i156573557288372598.png" width="16" height="16"/>
     </resources>
 </document>

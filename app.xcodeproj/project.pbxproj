@@ -447,9 +447,9 @@
 		29FAEF4E20F396FC00E75BCD /* RCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAEF4D20F396FC00E75BCD /* RCMessage.swift */; };
 		29FAEF5020F39A7A00E75BCD /* RCMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FAEF4F20F39A7A00E75BCD /* RCMessages.swift */; };
 		6C0888E250EDDE30BCA104EB /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A8835041C05399266378E9 /* Pods_app.framework */; };
+		B20BD4A42303731900F04AD6 /* 156573557288372598.png in Resources */ = {isa = PBXBuildFile; fileRef = B20BD4A32303731900F04AD6 /* 156573557288372598.png */; };
 		B2D30D8A22CEC51F0048BFD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2D30D8922CEC51E0048BFD3 /* GoogleService-Info.plist */; };
 		B2D4B61122CC164D00D20378 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D4B61022CC164D00D20378 /* images.png */; };
-		B2D4B61322CC167400D20378 /* aircraft-1314333_640.png in Resources */ = {isa = PBXBuildFile; fileRef = B2D4B61222CC167400D20378 /* aircraft-1314333_640.png */; };
 		B2FB593722CC110C00274CED /* aircraft-1314333_640.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FB593622CC110C00274CED /* aircraft-1314333_640.png */; };
 		B2FB593922CC112D00274CED /* aircraft-1314333_640.png in Resources */ = {isa = PBXBuildFile; fileRef = B2FB593822CC112D00274CED /* aircraft-1314333_640.png */; };
 /* End PBXBuildFile section */
@@ -942,9 +942,9 @@
 		29FAEF4F20F39A7A00E75BCD /* RCMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCMessages.swift; sourceTree = "<group>"; };
 		7393A6F3A4D6270AF7ACDCFA /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 		AA3F4F54A03FBAE7CEC0B5DB /* app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app-Bridging-Header.h"; sourceTree = "<group>"; };
+		B20BD4A32303731900F04AD6 /* 156573557288372598.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 156573557288372598.png; path = ../../156573557288372598.png; sourceTree = "<group>"; };
 		B2D30D8922CEC51E0048BFD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B2D4B61022CC164D00D20378 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = images.png; path = ../../../../images.png; sourceTree = "<group>"; };
-		B2D4B61222CC167400D20378 /* aircraft-1314333_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraft-1314333_640.png"; path = "../../aircraft-1314333_640.png"; sourceTree = "<group>"; };
 		B2FB593622CC110C00274CED /* aircraft-1314333_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraft-1314333_640.png"; path = "../../../../aircraft-1314333_640.png"; sourceTree = "<group>"; };
 		B2FB593822CC112D00274CED /* aircraft-1314333_640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "aircraft-1314333_640.png"; path = "../../../../aircraft-1314333_640.png"; sourceTree = "<group>"; };
 		DED94DC0AC66CCD8277DB3AF /* app-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app-Prefix.pch"; sourceTree = "<group>"; };
@@ -2249,7 +2249,7 @@
 				29D29F021D9A59E4006CA074 /* LaunchScreen.storyboard */,
 				B2D30D8922CEC51E0048BFD3 /* GoogleService-Info.plist */,
 				29D29F051D9A59E4006CA074 /* Info.plist */,
-				B2D4B61222CC167400D20378 /* aircraft-1314333_640.png */,
+				B20BD4A32303731900F04AD6 /* 156573557288372598.png */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -2676,6 +2676,7 @@
 				298990141F1B6FFD00AC73B3 /* stickerlocal74@2x.png in Resources */,
 				29BB8FA41F5C266100560F3F /* callvideo_hangup@2x.png in Resources */,
 				298990281F1B6FFD00AC73B3 /* stickersend16@2x.png in Resources */,
+				B20BD4A42303731900F04AD6 /* 156573557288372598.png in Resources */,
 				2989902F1F1B6FFD00AC73B3 /* stickersend23@2x.png in Resources */,
 				29BB8FAC1F5C266100560F3F /* chat_camera@2x.png in Resources */,
 				298990121F1B6FFD00AC73B3 /* stickerlocal72@2x.png in Resources */,
@@ -2753,7 +2754,6 @@
 				B2FB593722CC110C00274CED /* aircraft-1314333_640.png in Resources */,
 				B2FB593922CC112D00274CED /* aircraft-1314333_640.png in Resources */,
 				2989900E1F1B6FFD00AC73B3 /* stickerlocal68@2x.png in Resources */,
-				B2D4B61322CC167400D20378 /* aircraft-1314333_640.png in Resources */,
 				296021791F2CF5F600544468 /* CallsView.xib in Resources */,
 				298990361F1B6FFD00AC73B3 /* stickersend30@2x.png in Resources */,
 				B2D30D8A22CEC51F0048BFD3 /* GoogleService-Info.plist in Resources */,
